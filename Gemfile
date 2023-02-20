@@ -76,3 +76,5 @@ gem "letter_opener", "~> 1.8"
 gem "dotenv-rails", "~> 2.8"
 
 gem "faker", "~> 3.1"
+
+gem "mailjet", "~> 1.7"
