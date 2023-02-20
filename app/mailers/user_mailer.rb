@@ -6,4 +6,10 @@ class UserMailer < ApplicationMailer
     @url = 'http://eventbrite-clone-82010.herokuapp.com/login'
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
+
+  def attendance_email(attendance)
+    @user = attendance.user
+    @event = attendance.event
+    mail(to: @user.email, subject: 'Inscription confirmée !')
+  end
 end
