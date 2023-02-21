@@ -26,35 +26,28 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Créer un évenement</a>
             </li>
-            <% if logged_in? %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Se connecter
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Se connecter</a></li>
-                  <li><a class="dropdown-item" href="#">S'inscrire</a></li>
-                </ul>
-              </li>
-            <% else %>
+            <% if user_signed_in? %>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <%= current_user.first_name %>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                  <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
+                  <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Mon profil</a></li>
+                  <li><a class="dropdown-item" href="<%= destroy_user_session_path %>">Se déconnecter</a></li>
+                </ul>
+              </li>
+            <% else %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Se connecter
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="<%= new_user_session_path %>">Se connecter</a></li>
+                  <li><a class="dropdown-item" href="<%= new_user_registration_path %>">S'inscrire</a></li>
                 </ul>
               </li>
             <% end %>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>
