@@ -15,7 +15,7 @@ Attendance.destroy_all
 5.times do |_|
   user = User.new(first_name: Faker::Name.first_name,
                   last_name: Faker::Name.last_name,
-                  password: Faker::Internet.password)
+                  password: 'foobar')
   user.email = (user.first_name + user.last_name + '@yopmail.com').downcase
   user.save
 end

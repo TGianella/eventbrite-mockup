@@ -6,6 +6,7 @@
       <p class="card-text"><%= object.description %></p>
     </div>
       <ul class="list-group list-group-flush">
+        <li class="list-group-item">Organisé par <%= "#{object.user.first_name} #{object.user.last_name}" %></li>
         <li class="list-group-item"><%= object.start_date.strftime('Le %e/%m/%Y à partir de %k:%M') %></li>
         <li class="list-group-item"><%= object.location %></li>
       </ul>

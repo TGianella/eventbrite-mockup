@@ -1,0 +1,35 @@
+<h1>Edite ton profil</h1>
+
+<% @user.errors do |error| %>
+  <%= error %>
+<% end %>
+
+<%= form_with model: @user do |form| %>
+  <div class="mb-3">
+    <%= form.label "Prénom" %><br>
+    <%= form.text_field :first_name %>
+    <% @user.errors.full_messages_for(:first_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Nom" %><br>
+    <%= form.text_field :last_name %>
+    <% @user.errors.full_messages_for(:last_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "Description" %><br>
+    <%= form.text_area :description %>
+    <% @user.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

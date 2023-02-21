@@ -15,7 +15,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 text-center mt-3">
       <% group.each do |event| %>
         <% unless event.nil? %>
-          <%= render partial: 'cards', locals: { object: event } %>
+          <%= render partial: 'application/cards', locals: { object: event } %>
         <% end %>
       <% end %>
     </div>
