@@ -80,3 +80,7 @@ gem "faker", "~> 3.1"
 gem "mailjet", "~> 1.7"
 
 gem "devise", "~> 4.9"
+
+gem "font-awesome-sass", "~> 6.3"
+
+gem "font-awesome-rails", "~> 4.7"
