@@ -1,0 +1,27 @@
+<div class="container d-flex flex-column align-items-center mt-3">
+  <h1 class="my-2"><%= @event.title %></h1>
+
+  <div class="list-group text-break my-4 w-75">
+    <div class="list-group-item mb-0">
+      <h5 class="mb-1">Description</h5>
+      <%= @event.description %>
+    </div>
+    <p class="list-group-item mb-0"><%= @event.users.count %> participant.e.s inscrit.e.s pour le moment</p>
+    <div class="list-group-item mb-0">
+      <h5 class="mb-1">Organisateur.ice</h5>
+      <%= @event.user.email %>
+    </div>
+    <div class="list-group-item mb-0">
+      <h5>Quand ?</h5>
+      <%= "Du #{@event.start_date.strftime('%e/%m/%Y %H:%M')} au #{@event.end_date.strftime('%e/%m/%Y %H:%M')}" %>
+    </div>
+    <div class="list-group-item mb-0">
+      <h5>Combien ?</h5>
+      <%= @event.price %> €
+    </div>
+    <div class="list-group-item mb-0">
+      <h5>Où ?</h5>
+      <%= @event.location %>
+    </div>
+  </div>
+</div>

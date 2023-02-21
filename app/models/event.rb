@@ -20,6 +20,10 @@ class Event < ApplicationRecord
             numericality: { in: 1..1000 }
   validates :location, presence: true
 
+  def end_date
+    start_date + duration.minutes
+  end
+
   def start_date_not_in_the_past
     return unless start_date.present? && start_date < Date.today
 
