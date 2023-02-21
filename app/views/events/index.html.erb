@@ -1,2 +1,24 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="px-4 py-5 mb-3 text-center text-white jumbotron">
+  <h1 class="display-5 fw-bold">Créez ou participez !</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4">
+      Avec Eventbritte, rien n'est plus simple que de créer ou de participer à un événement. Tous les événements les plus chauds de ta ville sont sur cette page !
+    </p>
+  </div>
+  <div class='d-grid gap-2 d-sm-flex justify-content-sm-center'>
+    <%= link_to "Créer un événement", new_event_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<div>
+  <% @events.in_groups_of(4) do |group| %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 text-center mt-3">
+      <% group.each do |event| %>
+        <% unless event.nil? %>
+          <%= render partial: 'cards', locals: { object: event } %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+        

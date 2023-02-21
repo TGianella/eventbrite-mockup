@@ -1,0 +1,20 @@
+<div class="col">
+  <div class="card shadow-sm">
+    <%= image_tag "dog-placeholder.jpg", class: "card-img-top", alt: "Cute dog placeholder" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= object.title %></h5>
+      <p class="card-text"><%= object.description %></p>
+    </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= object.start_date.strftime('Le %e/%m/%Y à partir de %k:%M') %></li>
+        <li class="list-group-item"><%= object.location %></li>
+      </ul>
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center">
+        <button type="button" class="btn btn-sm btn-outline-secondary me-auto">Voir</button>
+        <small class="text-muted mx-1"><%= object.price %> €</small>
+        <small class="text-muted mx-1"><%= object.duration %> minutes</small>
+      </div>
+    </div>
+  </div>
+</div>
