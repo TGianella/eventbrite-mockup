@@ -1,6 +1,6 @@
 <div class="col">
   <div class="card shadow-sm">
-    <%= image_tag "dog-placeholder.jpg", class: "card-img-top", alt: "Cute dog placeholder" %>
+    <%= image_tag object.image, class: "card-img-top", alt: "Event image" %>
     <div class="card-body">
       <h5 class="card-title"><%= object.title %></h5>
       <p class="card-text"><%= object.description %></p>
@@ -12,7 +12,7 @@
       </ul>
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center">
-        <%= link_to "Voir", event_path(object), class: "btn btn-sm btn-outline-secondary me-auto" %>
+        <%= link_to "Voir", event_path(object), class: "btn btn-sm btn-outline-secondary me-auto"%>
         <small class="text-muted mx-1"><%= object.price %> €</small>
         <small class="text-muted mx-1"><%= object.duration %> minutes</small>
       </div>

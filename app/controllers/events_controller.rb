@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
+    @event.image.attach(params[:image])
 
     if @event.save
       flash[:success] = 'Votre événement a bien été créé'

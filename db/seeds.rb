@@ -21,11 +21,13 @@ Attendance.destroy_all
 end
 
 12.times do |_|
-  Event.create(start_date: Faker::Date.forward(days: 30),
-               duration: Faker::Number.within(range: 2..6) * 5,
-               title: Faker::Lorem.sentence,
-               description: Faker::Lorem.paragraph,
-               price: Faker::Number.within(range: 2..900),
-               location: Faker::Address.street_address,
-               user: User.all.sample)
+  event = Event.new(start_date: Faker::Date.forward(days: 30),
+                    duration: Faker::Number.within(range: 2..6) * 5,
+                    title: Faker::Lorem.sentence,
+                    description: Faker::Lorem.paragraph,
+                    price: Faker::Number.within(range: 2..900),
+                    location: Faker::Address.street_address,
+                    user: User.all.sample)
+  event.image.attach(io: File.open("#{Rails.root}/app/assets/images/dog-placeholder.jpg"), filename: 'event_image')
+  event.save!
 end

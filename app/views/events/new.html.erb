@@ -3,7 +3,7 @@
     <div class="d-flex flex-column justify-content-around align-items-center">
       <h1 class="my-3">Nouvel événement</h1>
 
-      <%= form_with model: @event do |form| %>
+      <%= form_with model: @event, multipart: true do |form| %>
         <div class="form-group mb-3">
           <%= form.label "Date de début" %><br>
           <%= form.datetime_local_field :start_date, min: Date.today %>
@@ -48,6 +48,14 @@
           <%= form.label "Lieu" %><br>
           <%= form.text_field :location %>
           <% @event.errors.full_messages_for(:location).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+
+        <div class="form-group mb-3">
+          <%= form.label "Image" %><br>
+          <%= file_field_tag :image %>
+          <% @event.errors.full_messages_for(:image).each do |message| %>
             <div><%= message %></div>
           <% end %>
         </div>

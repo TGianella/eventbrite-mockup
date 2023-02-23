@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :user
   has_many :attendances
   has_many :users, through: :attendances
+  has_one_attached :image
 
   validates :start_date, presence: true
   validate :start_date_not_in_the_past
@@ -19,6 +20,11 @@ class Event < ApplicationRecord
             presence: true,
             numericality: { in: 1..1000 }
   validates :location, presence: true
+  validates :image, attached: true,
+                    processable_image: true,
+                    content_type: ['image/png', 'image/jpeg'],
+                    aspect_ratio: :landscape,
+                    size: { less_than: 2.megabytes, message: 'is too large (only < 2Mb)' }
 
   def end_date
     start_date + duration.minutes
