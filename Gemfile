@@ -84,3 +84,5 @@ gem "devise", "~> 4.9"
 gem "font-awesome-sass", "~> 6.3"
 
 gem "font-awesome-rails", "~> 4.7"
+
+gem "stripe", "~> 8.3"
