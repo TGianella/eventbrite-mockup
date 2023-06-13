@@ -1,3 +1,5 @@
-# README
+# Eventbrite-Mockup
 
-[Le site en production](https://eventbrite-clone-82010.herokuapp.com/)
+A mockup of an event-booking app, with functional stripe integration.
+
+To test it, you can clone the repo, run `bundle install` and `rails server`.
